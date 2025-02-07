@@ -1,18 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>D Durrant Brickworks</title>
-  </head>
-  <body>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>D Durrant Brickworks LTD</title>
+
+  <script type="module">
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="print.css" media="print">
+
+  <meta name="description" content="Page description">
+  <meta property="og:title" content="Unique page title - My Site">
+  <meta property="og:description" content="Page description">
+  <meta property="og:image" content="https://www.mywebsite.com/image.jpg">
+  <meta property="og:image:alt" content="Image description">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://www.mywebsite.com/page">
+  <link rel="canonical" href="https://www.mywebsite.com/page">
+
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  
+  <meta name="theme-color" content="#FF00FF">
+</head>
+
+<body>
     <div class="background-overlay"></div>
     <header>
-      <nav>
+      <nav class="navigation-bar">
         <ul>
+          <img class="nav-logo" src="images/logo.png" alt="d durrant brickworks logo">
           <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Services</a></li>
           <li><a href="contact.html" class="contact-cta">Contact</a></li>
+          <li><a href="index.html">support@durrantbrickworks.co.uk | 07799404776</a></li>
         </ul>
       </nav>
     </header>
@@ -20,11 +52,6 @@
       <div class="main-wrapper">
         <section>
           <div class="hero-wrapper">
-            <img
-              class="logo-img"
-              src="images/logo.png"
-              alt="d durrant brickworks logo"
-            />
             <h1>
               Construction Specialists Based in Mid Sussex and Surrounding Areas
             </h1>
@@ -92,6 +119,15 @@
         </section>
       </div>
     </main>
-    <footer></footer>
-  </body>
+    <footer>
+      <div class="ftr-logo-wrapper">
+        <img src="images/logo.png" alt="d durrant brickworks logo">
+      </div>
+      <div class="ftr-contact-wrapper"></div>
+      <div class="ftr-legal"></div>
+      <div class="ftr-company-details"></div>
+    </footer>
+  <script src="/assets/js/xy-polyfill.js" nomodule></script>
+  <script src="/assets/js/script.js" type="module"></script>
+</body>
 </html>
