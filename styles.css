@@ -1,5 +1,6 @@
-/* CSS Reset */
-/* Box sizing rules */
+/* ==========================================================================
+   CSS Reset
+   ========================================================================== */
 *,
 *::before,
 *::after {
@@ -15,7 +16,7 @@ html {
   text-size-adjust: none;
 }
 
-/* Remove default margin in favour of better control in authored CSS */
+/* Remove default margins */
 body,
 h1,
 h2,
@@ -29,19 +30,24 @@ dd {
   margin-block-end: 0;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+/* Remove list styles */
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
 }
 
-/* Set core body defaults */
+/* Core body defaults */
 body {
   min-height: 100vh;
   line-height: 1.5;
+  width: 100%;
+  font-family: "montserrat", sans-serif;
+  font-size: 1rem;
+  position: relative;
+  color: #fff;
 }
 
-/* Set shorter line heights on headings and interactive elements */
+/* Typography defaults */
 h1,
 h2,
 h3,
@@ -50,30 +56,23 @@ button,
 input,
 label {
   line-height: 1.1;
-}
-
-/* Balance text wrapping on headings */
-h1,
-h2,
-h3,
-h4 {
   text-wrap: balance;
 }
 
-/* A elements that don't have a class get default styles */
+/* Link defaults */
 a:not([class]) {
   text-decoration-skip-ink: auto;
   color: currentColor;
 }
 
-/* Make images easier to work with */
+/* Media defaults */
 img,
 picture {
   max-width: 100%;
   display: block;
 }
 
-/* Inherit fonts for inputs and buttons */
+/* Form element defaults */
 input,
 button,
 textarea,
@@ -82,26 +81,25 @@ select {
   font-size: inherit;
 }
 
-/* Make sure textareas without a rows attribute are not tiny */
 textarea:not([rows]) {
   min-height: 10em;
 }
 
-/* Anything that has been anchored to should have extra scroll margin */
+/* Anchor target spacing */
 :target {
   scroll-margin-block: 5ex;
 }
 
-/* Custom styles */
-body {
-  width: 100%;
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
-  position: relative;
-  color: red;
+/* ==========================================================================
+      Layout & Background
+      ========================================================================== */
+
+/* Remove the body::after completely since it's blocking clicks */
+body::after {
+  display: none;
 }
 
+/* Modify the background-overlay to handle both the image and blur in one element */
 .background-overlay {
   position: fixed;
   top: 0;
@@ -113,31 +111,47 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
-  filter: grayscale(50%);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
+  filter: grayscale(35%) brightness(50%);
   backdrop-filter: blur(0.5px);
   -webkit-backdrop-filter: blur(5px);
 }
 
+/* Remove the redundant background-overlay::after */
+.background-overlay::after {
+  display: none;
+}
+
+/* ==========================================================================
+      Header & Navigation
+      ========================================================================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
 .navigation-bar {
-  background-color: rgba(128, 128, 128, 0.5);
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* Three equal sections */
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   width: 100%;
   padding: 0.5rem 2rem;
+  font-family: "montserrat", sans-serif;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background var(--transition-standard);
+}
+
+.nav-logo-wrapper {
+  display: inline-block; /* Change from default block */
+  text-decoration: none; /* Remove underline since it's now an anchor */
+  width: fit-content; /* Only take up as much space as needed */
 }
 
 .logo {
-  justify-self: start;
   height: 100px;
   width: 150px;
   margin-left: 1rem;
@@ -151,9 +165,14 @@ body::after {
   justify-content: center;
 }
 
+.nav-menu :hover {
+  color: #cccccc;
+}
+
 .nav-menu li a {
   color: #fff;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .nav-contact {
@@ -162,31 +181,30 @@ body::after {
   gap: 1rem;
   align-items: center;
   margin-right: 1rem;
+  font-style: normal;
 }
 
 .nav-contact a {
   color: #fff;
   text-decoration: none;
+  font-weight: 600;
 }
 
-.main-wrapper {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-}
-
+/* ==========================================================================
+      Hero Section
+      ========================================================================== */
 .hero-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centres vertically */
-  height: 100vh; /* Full viewport height */
+  justify-content: center;
+  height: 100vh;
   text-align: center;
   gap: 1rem;
 }
 
 h1 {
-  font-weight: 800;
+  font-weight: 600;
   color: #fff;
   font-size: 2.5rem;
   margin-bottom: 1rem;
@@ -200,16 +218,61 @@ h1 {
   margin-bottom: 2rem;
 }
 
+.social-icon {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: #fff;
+  font-size: 2.5rem;
+  transform: translateZ(0); /* Optional: Forces GPU acceleration */
+  transition: transform 0.3s ease;
+  will-change: transform; /* Hints to browser about the animation */
+}
+
+.social-icon:hover {
+  scale: 1.1;
+  color: #ddd;
+  transform: scale(1.05);
+}
+
+.cta-button {
+  background-color: #e80405;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+  transform: translateZ(0); /* Optional: Forces GPU acceleration */
+  transition: transform 0.3s ease;
+  will-change: transform; /* Hints to browser about the animation */
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+      Services Section
+      ========================================================================== */
+.main-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .sec-wrapper {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   margin: 3rem auto;
-  background-color: #fff;
-  width: 90%;
-  max-width: 1200px;
+  background-color: #f5f5f5;
+  width: 100%;
   padding: 2rem;
-  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -217,16 +280,48 @@ h1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.service-wrapper.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .service-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.5rem;
+  transform: translateZ(0); /* Optional: Forces GPU acceleration */
+  transition: transform 0.3s ease;
+  will-change: transform; /* Hints to browser about the animation */
+}
+
+.service-card:hover {
+  transform: scale(1.05);
+}
+
+.service-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-bottom: 1px solid #eee;
+  border-radius: 0.5%;
+}
+
+.service-icon-wrapper {
+  background: #f8f9fa;
+  padding: 2rem;
   text-align: center;
+  border-bottom: 1px solid #eee;
 }
 
 .service-icon {
@@ -235,6 +330,50 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.service-content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.service-content h3 {
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.service-content p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.service-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+}
+
+.service-btn:hover {
+  background-color: #444;
+}
+
+/* ==========================================================================
+      Testimonials Section
+      ========================================================================== */
 .testimonials-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -249,6 +388,8 @@ h1 {
   padding: 1.5rem;
   background-color: #f5f5f5;
   border-radius: 8px;
+  color: #333;
+  font-family: "montserrat", sans-serif;
 }
 
 .rating {
@@ -259,49 +400,152 @@ h1 {
 }
 
 .rating ion-icon {
-  color: #ffd700;
+  color: #ffff00;
   font-size: 1.25rem;
 }
 
-/* Update the social icons style */
-.social-icon {
-  cursor: pointer;
+/* ==========================================================================
+      Section Divider
+      ========================================================================== */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* gap: 1rem; */
+  margin: 3rem 0;
+  padding: 0 2rem;
+}
+
+.divider-line {
+  height: 2px;
+  background-color: #333;
+  flex-grow: 1;
+  /* max-width: 200px; */
+}
+
+.divider-icon {
+  color: #333;
+  font-size: 1.5rem;
+}
+
+/* ==========================================================================
+      Footer
+      ========================================================================== */
+.footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  padding: 3rem 2rem 1rem;
+  font-family: "montserrat", sans-serif;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section {
+  padding: 0 1rem;
+}
+
+.footer-section h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Contact Section */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-item a {
+  color: #ffffff;
+  text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.social-icon:hover {
-  color: #ddd;
+.contact-item a:hover {
+  color: #cccccc;
 }
 
-.logo-img {
-  width: 250px;
-  height: 200px;
-  margin: 0 auto;
-  display: block;
+.contact-item i {
+  font-size: 1.125rem;
 }
 
-.cta-button {
-  background-color: transparent;
-  border-radius: 10px;
-  border: 3px solid #f7fcf8;
-  display: inline-block;
-  cursor: pointer;
+/* Legal Section */
+.legal-links {
+  list-style: none;
+  padding: 0;
+}
+
+.legal-links li {
+  margin-bottom: 0.75rem;
+}
+
+.legal-links a {
   color: #ffffff;
-  font-family: Arial;
-  font-size: 15px;
-  padding: 16px 31px;
   text-decoration: none;
-  text-shadow: 0px 1px 0px #ffffff;
+  transition: color 0.3s ease;
 }
 
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
+.legal-links a:hover {
+  color: #cccccc;
 }
 
-ion-icon {
-  color: #fff;
-  font-size: 2rem;
+/* Company Details */
+.company-details {
+  grid-column: span 2;
+}
+
+.address {
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+
+  .company-details {
+    grid-column: 1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* ==========================================================================
+      Media Queries
+      ========================================================================== */
+@media (max-width: 768px) {
+  .service-wrapper {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
 }

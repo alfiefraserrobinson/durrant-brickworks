@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <title>D Durrant Brickworks LTD</title>
 
     <script type="module">
@@ -14,23 +13,38 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="print.css" media="print" />
 
-    <meta name="description" content="Page description" />
-    <meta property="og:title" content="Unique page title - My Site" />
-    <meta property="og:description" content="Page description" />
-    <meta property="og:image" content="https://www.mywebsite.com/image.jpg" />
-    <meta property="og:image:alt" content="Image description" />
+    <!-- Meta Tags -->
+    <meta
+      name="description"
+      content="Construction specialists based in Mid Sussex offering brickwork, renovation, and landscaping services"
+    />
+    <meta
+      property="og:title"
+      content="D Durrant Brickworks LTD - Construction Specialists"
+    />
+    <meta
+      property="og:description"
+      content="Professional brickwork and construction services in Mid Sussex and surrounding areas"
+    />
+    <meta
+      property="og:image"
+      content="https://www.durrantbrickworks.co.uk/images/logo.png"
+    />
+    <meta property="og:image:alt" content="D Durrant Brickworks Logo" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:url" content="https://www.mywebsite.com/page" />
-    <link rel="canonical" href="https://www.mywebsite.com/page" />
+    <meta property="og:url" content="https://www.durrantbrickworks.co.uk" />
+    <link rel="canonical" href="https://www.durrantbrickworks.co.uk" />
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -38,130 +52,239 @@
       rel="stylesheet"
     />
 
-    <meta name="theme-color" content="#FF00FF" />
+    <meta name="theme-color" content="#333333" />
   </head>
 
   <body>
-    <div class="background-overlay"></div>
-    <header>
-      <nav class="navigation-bar">
-        <div class="nav-logo-wrapper">
+    <div class="background-overlay" role="presentation"></div>
+
+    <header role="banner">
+      <nav
+        class="navigation-bar"
+        role="navigation"
+        aria-label="Main navigation"
+      >
+        <a href="/" class="nav-logo-wrapper" aria-label="Go to homepage">
           <img
             class="logo"
             src="images/logo.png"
-            alt="d durrant brickworks logo"
+            alt="D Durrant Brickworks logo"
           />
-        </div>
-        <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html">Services</a></li>
+        </a>
+
+        <ul class="nav-menu" role="list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="contact.html" class="contact-cta">Contact</a></li>
-          <li></li>
         </ul>
 
-        <div class="nav-contact">
+        <address class="nav-contact">
           <a href="mailto:support@durrantbrickworks.co.uk"
             >support@durrantbrickworks.co.uk</a
           >
-          | 07799404776
-        </div>
+          <span aria-hidden="true">|</span>
+          <a href="tel:+447790977478">07790 977478</a>
+        </address>
       </nav>
     </header>
-    <main>
-      <div class="main-wrapper">
-        <section>
-          <div class="hero-wrapper">
-            <h1>
-              Construction Specialists Based in Mid Sussex and Surrounding Areas
-            </h1>
-            <div class="social-wrapper">
+
+    <main role="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-wrapper">
+          <h1 id="hero-title">
+            Construction Specialists Based in Mid Sussex and Surrounding Areas
+          </h1>
+
+          <div class="social-wrapper" aria-label="Social media links">
+            <a href="https://facebook.com" aria-label="Visit our Facebook page">
               <ion-icon name="logo-facebook" class="social-icon"></ion-icon>
+            </a>
+            <a
+              href="https://instagram.com"
+              aria-label="Visit our Instagram page"
+            >
               <ion-icon name="logo-instagram" class="social-icon"></ion-icon>
+            </a>
+            <a href="https://linkedin.com" aria-label="Visit our LinkedIn page">
               <ion-icon name="logo-linkedin" class="social-icon"></ion-icon>
-            </div>
-            <div class="cta-wrapper">
-              <button class="cta-button">Get in touch</button>
-            </div>
+            </a>
           </div>
-        </section>
 
-        <section>
-          <div class="sec-wrapper">
-            <!-- Replace the service-wrapper div content with: -->
-            <div class="service-wrapper">
-              <div class="service-card">
-                <ion-icon
-                  name="construct-outline"
-                  class="service-icon"
-                ></ion-icon>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Impedit, nulla animi rem ex voluptas esse perspiciatis
-                  inventore neque assumenda voluptatum.
-                </p>
-              </div>
-              <div class="service-card">
-                <ion-icon name="hammer-outline" class="service-icon"></ion-icon>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
-                  reiciendis a voluptates quidem ratione error dolores odio
-                  rerum perspiciatis.
-                </p>
-              </div>
-              <div class="service-card">
-                <ion-icon name="build-outline" class="service-icon"></ion-icon>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Eligendi voluptatibus quod minus quas excepturi perspiciatis.
-                </p>
-              </div>
-            </div>
+          <div class="cta-wrapper">
+            <a href="contact.html" class="cta-button" role="button"
+              >Get in touch</a
+            >
+          </div>
+        </div>
+      </section>
 
-            <!-- Update the testimonials-wrapper content to: -->
+      <section id="services" class="services" aria-labelledby="services-title">
+        <div class="sec-wrapper">
+          <h2 id="services-title" class="visually-hidden">Our Services</h2>
+
+          <div class="service-wrapper">
+            <article class="service-card">
+              <div class="service-content">
+                <img
+                  class="service-img"
+                  src="images/service-img-nb.webp"
+                  alt="New build construction project"
+                />
+                <h3>New Build Construction</h3>
+                <p>
+                  Expert brickwork for new residential and commercial buildings.
+                  We pride ourselves on precision, quality materials, and timely
+                  project completion.
+                </p>
+                <a href="#" class="service-btn" role="button">Learn More</a>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-content">
+                <img
+                  class="service-img"
+                  src="images/service-img-rp.webp"
+                  alt="Renovation and repair work"
+                />
+                <h3>Renovation & Repairs</h3>
+                <p>
+                  Specialized in brick repair, repointing, and renovation work.
+                  We match existing brickwork perfectly to maintain your
+                  property's character.
+                </p>
+                <a href="#" class="service-btn" role="button">Learn More</a>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-content">
+                <img
+                  class="service-img"
+                  src="images/service-img-lsg.webp"
+                  alt="Garden and landscaping project"
+                />
+                <h3>Garden & Landscaping</h3>
+                <p>
+                  Beautiful garden walls, pathways, and outdoor features.
+                  Transform your outdoor space with our expert brickwork and
+                  design services.
+                </p>
+                <a href="#" class="service-btn" role="button">Learn More</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="section-divider" role="separator" aria-hidden="true">
+            <div class="divider-line"></div>
+            <div class="divider-line"></div>
+          </div>
+
+          <section class="testimonials" aria-labelledby="testimonials-title">
+            <h2 id="testimonials-title" class="visually-hidden">
+              Customer Testimonials
+            </h2>
+
             <div class="testimonials-wrapper">
-              <div class="testimonial">
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Expedita incidunt accusantium sint numquam sequi ea
-                  exercitationem.
-                </p>
-                <div class="rating">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                </div>
-              </div>
-              <div class="testimonial">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae
-                  soluta ipsum beatae aperiam fugiat nisi modi provident.
-                </p>
-                <div class="rating">
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                  <ion-icon name="star"></ion-icon>
-                </div>
-              </div>
+              <blockquote class="testimonial">
+                <cite>Sri, BN3</cite>
+                <strong>
+                  Dan delivered exceptional service during the repointing work
+                  at our house. He consistently demonstrated professionalism and
+                  courtesy, impressing us with his punctuality and polite
+                  demeanor. The work was completed as quoted, and the quality of
+                  the finished job was excellent. We are thoroughly satisfied
+                  with the results and would gladly enlist Dan's services in the
+                  future.
+                </strong>
+                <footer>
+                  <div class="rating" aria-label="5 out of 5 stars">
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                  </div>
+                </footer>
+              </blockquote>
+
+              <blockquote class="testimonial">
+                <cite>Rebecca, BN43</cite>
+                <strong>
+                  Dan was very quick to respond to my request for a job to be
+                  completed and maintained good communication throughout. He was
+                  great value for money and delivered the job to a very high
+                  level of standard. I would highly recommend his services to
+                  friends and family.
+                </strong>
+                <footer>
+                  <div class="rating" aria-label="5 out of 5 stars">
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                  </div>
+                </footer>
+              </blockquote>
             </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer-content">
+        <section class="footer-section" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact</h2>
+          <address>
+            <div class="contact-item">
+              <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+              <a href="tel:+447790977478">07790 977478</a>
+            </div>
+            <div class="contact-item">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              <a href="mailto:info@brickworksltd.co.uk"
+                >info@brickworksltd.co.uk</a
+              >
+            </div>
+          </address>
+          <div class="social-icons" aria-label="Social media links">
+            <a href="#" class="social-icon" aria-label="Visit our Instagram">
+              <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="#" class="social-icon" aria-label="Visit our Facebook">
+              <i class="fab fa-facebook" aria-hidden="true"></i>
+            </a>
           </div>
         </section>
+
+        <nav class="footer-section" aria-labelledby="legal-title">
+          <h2 id="legal-title">Legal</h2>
+          <ul class="legal-links" role="list">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Privacy Settings</a></li>
+          </ul>
+        </nav>
+
+        <section
+          class="footer-section company-details"
+          aria-labelledby="company-title"
+        >
+          <h2 id="company-title">Company Details</h2>
+          <p>Company number: 11519479</p>
+          <address class="address">
+            <p>Delmon House, 36-38 Church Road,</p>
+            <p>Burgess Hill, West Sussex, United Kingdom, RH15 9AE</p>
+          </address>
+        </section>
       </div>
-    </main>
-    <footer>
-      <div class="ftr-logo-wrapper">
-        <img
-          class="logo"
-          src="images/logo.png"
-          alt="d durrant brickworks logo"
-        />
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 D Durrant Brickworks LTD</p>
+        <p>Website by AR Websites</p>
       </div>
-      <div class="ftr-contact-wrapper"></div>
-      <div class="ftr-legal"></div>
-      <div class="ftr-company-details"></div>
     </footer>
 
     <script
@@ -173,6 +296,6 @@
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
     <script src="/assets/js/xy-polyfill.js" nomodule></script>
-    <script src="/assets/js/script.js" type="module"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
